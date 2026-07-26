@@ -49,16 +49,7 @@ while that happens.
 
 | File | What it is |
 |---|---|
-| `grids.nds` | The instrument with an empty pattern bank. Start here. |
-| `grids-night.nds` | Ships with NIGHTDRIVE, the factory demo |
-| `grids-brut.nds` | Ships with BRUTALIZER, a darker one |
-| `grids-neon.nds` | Ships with NEON CITY, which tours most of the features |
-| `grids-comp.nds` | PASSENGER, a companion part meant to play on a second DS alongside `grids-night` |
-| `grids-trial.nds` | Trial build. MIDI and saving are off. |
-
-The demo builds aren't cut down in any way. They're the whole instrument with a
-song already loaded, so load one, hit play, and then pull it apart to see how it
-was put together.
+| `grids.nds` | The instrument with an empty pattern bank. 
 
 ---
 
