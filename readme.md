@@ -359,18 +359,39 @@ The chord's quality comes from CC. CC25 picks the type, CC26 the inversion.
 
 | CC | Parameter | CC | Parameter |
 |---|---|---|---|
-| 1 | ENV MOD (mod wheel) | 74 | CUTOFF |
-| 71 | RESO | 75 | DECAY |
-| 79 | GLIDE | 88 | Master volume |
-| 90 | WAVE | 94 | DETUNE |
-| 95 | UNISON (raw count, 1 to 7) | 103 | SUB |
-| 73 / 70 / 72 | ATK / SUS / REL | 102 | Filter target |
-| 104 / 105 | ARP mode / rate | 107 to 109 | Delay time / feedback / mix |
-| 110 to 112 | Chorus rate / depth / mix | 116 / 117 | Pump depth / release |
-| 20 to 24 | KEY / SCALE / SNAP / FOLLOW / ARP | 25 / 26 | Chord type / inversion |
-| 8 / 9 / 10 | Pan for PAD / BASS / LEAD | 7 | This channel's device level |
+| 74 | CUTOFF | 71 | RESO |
+| 1 / 113 | ENV MOD (mod wheel) | 114 | ACCENT |
+| 115 | DRIVE | 90 | WAVE (saw / square) |
+| 73 / 75 / 70 / 72 | Filter env ATK / DEC / SUS / REL | 76 / 77 / 78 / 85 | Amp env ATK / DEC / SUS / REL |
+| 94 | DETUNE (LEAD spread, PAD width) | 103 | SUB (BASS) |
+| 95 | UNISON — a raw count of 1 to 7, not a 0-127 fader | 87 | WIDTH (LEAD and PAD) |
+| 79 | GLIDE | 7 | This channel's device level |
 
-Also honoured: CC120 and CC123 for all sound off, CC121 to reset controllers,
+**The rack, the mix and the locks.** One instrument each, so these are global.
+
+| CC | Parameter | CC | Parameter |
+|---|---|---|---|
+| 107 / 108 / 109 | Delay time / feedback / mix | 89 | Delay send mask |
+| 110 / 111 / 112 | Chorus rate / depth / mix | 91 | Chorus send mask |
+| 116 / 117 | Pump depth / release | 88 | Master volume |
+| 8 / 10 / 9 | Pan for PAD / LEAD / BASS | 102 | Filter target |
+| 104 / 105 | ARP mode / rate | 25 / 26 | Chord type / inversion |
+| 20 / 21 | KEY / SCALE | 22 / 23 / 24 | LEAD snap / BASS follow / ARP chord |
+
+The two send masks are bit fields, not faders: **1** = PAD, **2** = LEAD,
+**4** = BASS, added together. So 7 is everything (the default), 5 is PAD and
+BASS, 0 is nothing. Sending a plain fader sweep to them will switch devices in
+and out of the effect, which is worth knowing before you assign a knob to one.
+
+**On channel 10, the drums:**
+
+| CC | Parameter |
+|---|---|
+| 7 | Kit master level |
+| 20 to 27 | Lane TUNE — KCK SNR HTC HTO CLP TOM CBL CYM |
+| 28 to 31 | Lane DECAY — the first four of those |
+
+Also honured: CC120 and CC123 for all sound off, CC121 to reset controllers,
 pitch bend at plus or minus 2 semitones, and MIDI clock both in and out with
 start and stop.
 
